@@ -5,6 +5,7 @@ import ait.cohort46.post.dto.CommentDto;
 import ait.cohort46.post.dto.PostAddDto;
 import ait.cohort46.post.dto.PostDto;
 import ait.cohort46.post.dto.exception.PostNotFoundException;
+import ait.cohort46.post.model.Comment;
 import ait.cohort46.post.model.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -55,8 +56,7 @@ public class PostServiceImpl implements PostService {
     public PostDto addComment(String id, String author, String comment) {
         Post post = postRepository.findById(id)
                 .orElseThrow(PostNotFoundException::new);
-        CommentDto commentDto = new CommentDto(author, comment, LocalDateTime.now(), 0L);
-        post.getComments().add(commentDto);
+        post.getComments().add(new Comment(author, comment, LocalDateTime.now(), 0L));
         return getModelMapper.map(postRepository.save(post), PostDto.class);
     }
 

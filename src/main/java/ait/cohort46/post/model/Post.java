@@ -31,5 +31,5 @@ public class Post {
     @Setter
     private Long likes;
     @Setter
-    private List<CommentDto> comments = new ArrayList<>();
+    private List<Comment> comments;
 }

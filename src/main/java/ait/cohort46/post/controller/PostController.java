@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequiredArgsConstructor
-public class postController {
+public class PostController {
 
     private final PostService postService;
 
