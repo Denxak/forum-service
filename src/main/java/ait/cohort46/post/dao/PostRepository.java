@@ -2,12 +2,13 @@ package ait.cohort46.post.dao;
 
 import ait.cohort46.post.dto.PostDto;
 import ait.cohort46.post.model.Post;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface PostRepository extends CrudRepository<Post, String> {
+public interface PostRepository extends MongoRepository<Post, String> {
 
     Iterable<PostDto> findAllByAuthor(String author);
 
